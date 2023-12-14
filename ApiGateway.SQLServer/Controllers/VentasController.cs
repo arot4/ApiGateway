@@ -16,7 +16,6 @@ namespace ApiGateway.SQLServer.Controllers
             _context = context;
         }
 
-        // Registrar una nueva venta
         [HttpPost]
         public async Task<IActionResult> CrearVenta([FromBody] Venta venta)
         {

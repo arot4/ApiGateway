@@ -18,21 +18,21 @@ namespace ApiGateway.SQLServer.Controllers
 
         // Obtener todos los clientes
         [HttpGet]
-        public async Task<IActionResult> GetClientes()
+        public async Task<ActionResult<List<Cliente>>> GetClientes()
         {
             var clientes = await _context.Clientes.ToListAsync();
-            return Ok(clientes);
+            return clientes;
         }
 
         // Obtener un cliente por ID
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCliente(int id)
+        public async Task<ActionResult<Cliente>> GetCliente(int id)
         {
             var cliente = await _context.Clientes.FindAsync(id);
             if (cliente == null)
                 return NotFound();
 
-            return Ok(cliente);
+            return cliente;
         }
 
     }
